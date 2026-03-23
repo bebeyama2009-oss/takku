@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-senegal-green: #00853F;
+  --color-senegal-yellow: #FDEF42;
+  --color-senegal-red: #E31B23;
+  --color-premium-dark: #0F172A;
+  --color-premium-card: #1E293B;
+  --color-premium-accent: #38BDF8;
+  
+  --font-sans: "Plus Jakarta Sans", "Inter", "sans-serif";
+  
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-premium-dark text-slate-100 font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-senegal-green hover:bg-senegal-green/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-senegal-green/20;
+  }
+  
+  .glass-card {
+    @apply bg-premium-card/50 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 hover:border-senegal-green/30 transition-all duration-300;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-senegal-green via-senegal-yellow to-senegal-red;
+  }
+}
